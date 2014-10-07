@@ -15,7 +15,7 @@
 from flask import Flask, make_response, render_template, request
 
 # Import the helper functions
-import gitkitclient
+from identitytoolkit import gitkitclient
 
 app = Flask(__name__)
 app.debug = True
