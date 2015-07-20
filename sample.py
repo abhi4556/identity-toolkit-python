@@ -12,6 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from os import path
+
 from flask import Flask, make_response, render_template, request
 
 # Import the helper functions
@@ -21,8 +23,9 @@ app = Flask(__name__)
 app.debug = True
 
 # Import the configuration file you downloaded from Google Developer Console
+server_config_json = path.join(path.dirname(path.realpath(__file__)), 'gitkit-server-config.json')
 gitkit_instance = gitkitclient.GitkitClient.FromConfigFile(
-      'gitkit-server-config.json')
+      server_config_json)
 
 @app.route("/", methods=['GET', 'POST'])
 def index():
